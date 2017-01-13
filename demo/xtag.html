@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Xtag Demo</title>
+</head>
+
+<body>
+    <h2>Xtag Demo</h2>
+    <div class="xtags-example">
+        <p>Phone: <span>[phone="(11) 2222-3333"]</span></p>
+        <p>Site: <span>[site="https://github.com/lucasbrigida"]</span></p>
+        <p>Twitter: <span>[twitter="@lucas_brigida"]</span></p>
+        <p>Facebook: <span>[facebook="@lucas.brigida"]</span></p>
+        <p>Instagram: <span>[instagram="@lucasbrigida"]</span></p>
+        <p>Your Custom Tag: <span>[yoursocial="@lucasbrigida"]</span></p>
+    </div>
+    <!-- jQuery script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Xtag script -->
+    <script type="text/javascript" src="xtag.js"></script>
+    <!-- Your script -->
+    <script>
+    jQuery(function() {
+        new Xtag()
+            .phone('.xtags-example span')
+            .social('.xtags-example span', 'twitter')
+            .social('.xtags-example span', 'instagram')
+            .social('.xtags-example span', 'facebook')
+            .site('.xtags-example span')
+            .social('.xtags-example span', 'yoursocial', 'http://yoursocial.net/');
+    });
+    </script>
+</body>
+
+</html>

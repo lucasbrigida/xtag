@@ -1,0 +1,23 @@
+{
+  "name": "xtag",
+  "authors": [
+    "Lucas Pereira Brigida <lucas.brigida@ymail.com>"
+  ],
+  "description": "Convert custom strings to links",
+  "main": "dist/xtag.min.js",
+  "keywords": [
+    "xtag",
+    "tag",
+    "custom",
+    "tag"
+  ],
+  "license": "MIT",
+  "homepage": "github.com/lucasbrigida/xtag",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
