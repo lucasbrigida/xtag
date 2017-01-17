@@ -60,7 +60,7 @@ function Xtag() {
         var tagRawValue = tagPrettyValue.replace('@', '');
 
         if (siteUrl === '_self') siteUrl = ''; // For personal sites
-        
+
         var tagTemplate = '<a href="' + siteUrl + tagRawValue + '" target="_blank">' + tagPrettyValue + '</a>';
         jQuery(obj).html(tagTemplate);
     };
@@ -78,14 +78,36 @@ function Xtag() {
     var social = url;
 
     /* Site */
-    var site = function (selector) {
+    var site = function(selector) {
         url(selector, 'site', '_self');
         return this;
     };
 
+    /* Metadata */
+    var _xMetadata = function(index, obj) {
+        var tag = 'metadata';
+        var tagValue = jQuery(obj).text();
+        var tagRawValue = tagValue.replace('[' + tag + '=\"', '').replace('\"]', '');
+        jQuery(obj).hide();
+        return [tagRawValue.trim().split('=>')];
+    };
+
+    var metadata = function (selector, cb) {
+        var tagSelector = jQuery((selector || 'body') + ':contains("metadata")');
+        var metadataRaw = tagSelector.map(_xMetadata).toArray();
+        var metadataPretty = {};
+        for (var i in metadataRaw) { 
+            var meta = metadataRaw[i];
+            metadataPretty[meta[0]] = meta[1];
+        }
+        cb(metadataPretty);
+        return this;
+    }
+
     return {
         phone: phone,
         site: site,
-        social: social
+        social: social,
+        metadata: metadata
     };
 }
